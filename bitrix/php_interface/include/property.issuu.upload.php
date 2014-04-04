@@ -14,8 +14,8 @@
  */
 
 define(ISSUU_API_URL, 'http://upload.issuu.com/1_0');
-# define(ISSUU_API_KEY, '');
-# define(ISSUU_API_SECRET, '');
+define(ISSUU_API_KEY, '');
+define(ISSUU_API_SECRET, '');
 
 AddEventHandler('iblock', 'OnIBlockPropertyBuildList', array('CIBlockPropertyIssuuUpload', 'GetIBlockPropertyDescription'));
 AddEventHandler('main', 'OnUserTypeBuildList', array('CIBlockPropertyIssuuUpload', 'GetUserTypeDescription'));
