@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Issuu PDF Uploader for 1C-Bitrix
+ * PHP Version 5.4.0
+ * @package bitrix-issuu-uploader
+ * @link https://github.com/EduardNikolenko/bitrix-issuu-uploader/
+ * @author Eduard Nikolenko <eduard@grossell.com>
+ * @copyright 2014 Eduard Nikolenko
+ * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @note This program is distributed in the hope that it will be useful - WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
 define(ISSUU_API_URL, 'http://upload.issuu.com/1_0');
 # define(ISSUU_API_KEY, '');
 # define(ISSUU_API_SECRET, '');
