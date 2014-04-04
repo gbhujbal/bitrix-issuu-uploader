@@ -52,13 +52,11 @@ class CIBlockPropertyIssuuUpload {
         $arResult = array();
         $arValues = $value['VALUE'];
         
-        # Удаляем файл
         if ($arValues['ISSUU_DEL']) {
             DeleteFile($arValues);
             $arValues = false;
         }
         
-        # Выгружаем новые файлы
         if ($arValues['ISSUU_NEW']['NAME'] && !$arValues['ISSUU_NEW']['ERROR']) {
             if ($arValues['ISSUU_OLD_NAME'] && !$arValues['ISSUU_DEL']) {
                 DeleteFile($arValues);
@@ -74,6 +72,10 @@ class CIBlockPropertyIssuuUpload {
         return $arResult;
     }
     
+    /**
+     * Function for upload file to Issuu server
+     * @param array $arValues
+     */
     function UploadFile($arValues) {
         $file_id  = CFile::SaveFile($arValues['ISSUU_NEW'], 'tmp');
         $file_url = CFile::GetPath($file_id);
@@ -109,6 +111,10 @@ class CIBlockPropertyIssuuUpload {
         return $arPostFields['name'] . ',' . $issuu_newdoc_id;
     }
     
+    /**
+     * Function for delete file from Issuu server
+     * @param array $arValues
+     */
     function DeleteFile($arValues) {
         $arPostFields = array();
         $arPostFields['action']     = 'issuu.document.delete';
