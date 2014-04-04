@@ -66,12 +66,12 @@ class CIBlockPropertyIssuuUpload {
         $file_url = CFile::GetPath($file_id);
         
         $arPostFields = array();
-        $arPostFields['action'] = 'issuu.document.upload';
-        $arPostFields['apiKey'] = ISSUU_API_KEY;
-        $arPostFields['name']   = 'pdf' . time();
-        $arPostFields['title']  = '';
-        $arPostFields['signature'] = md5(ISSUU_API_SECRET . 'actionissuu.document.uploadapiKey' . ISSUU_API_KEY . 'name' . $arPostFields['name'] . 'title' . $arPostFields['title']);
-        $arPostFields['file'] = '@' . $_SERVER['DOCUMENT_ROOT'] . $file_url;
+        $arPostFields['action']     = 'issuu.document.upload';
+        $arPostFields['apiKey']     = ISSUU_API_KEY;
+        $arPostFields['name']       = 'PDF_' . time();
+        $arPostFields['title']      = '';
+        $arPostFields['signature']  = md5(ISSUU_API_SECRET . 'actionissuu.document.uploadapiKey' . ISSUU_API_KEY . 'name' . $arPostFields['name'] . 'title' . $arPostFields['title']);
+        $arPostFields['file']       = '@' . $_SERVER['DOCUMENT_ROOT'] . $file_url;
         
         curl_setopt($curl, CURLOPT_URL, ISSUU_API_URL);
         curl_setopt($curl, CURLOPT_POST, 1);
@@ -98,10 +98,10 @@ class CIBlockPropertyIssuuUpload {
     
     function DeleteFile($arValues) {
         $arPostFields = array();
-        $arPostFields['action'] = 'issuu.document.delete';
-        $arPostFields['apiKey'] = ISSUU_API_KEY;
-        $arPostFields['names'] = $arValues['ISSUU_OLD_NAME'];
-        $arPostFields['signature'] = md5(ISSUU_API_SECRET . 'actionissuu.document.deleteapiKey' . ISSUU_API_KEY . 'names' . $arValues['ISSUU_OLD_NAME']);
+        $arPostFields['action']     = 'issuu.document.delete';
+        $arPostFields['apiKey']     = ISSUU_API_KEY;
+        $arPostFields['names']      = $arValues['ISSUU_OLD_NAME'];
+        $arPostFields['signature']  = md5(ISSUU_API_SECRET . 'actionissuu.document.deleteapiKey' . ISSUU_API_KEY . 'names' . $arValues['ISSUU_OLD_NAME']);
         
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, ISSUU_API_URL);
